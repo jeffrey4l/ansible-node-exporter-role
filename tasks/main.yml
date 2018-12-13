@@ -1,0 +1,14 @@
+---
+- include: "install.yml"
+
+- include: "config.yml"
+
+- name: flush handlers
+  meta: flush_handlers
+
+- name: ensure node_exporter service is enabled and started
+  systemd:
+    name: node_exporter
+    state: started
+    enabled: true
+# vim:ft=yaml

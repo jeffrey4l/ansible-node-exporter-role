@@ -1,0 +1,12 @@
+---
+- name: check node_exporter status
+  hosts: all
+  tasks:
+    - name: check the node_exporter services
+      uri:
+        url: http://localhost:9100/metrics
+      register: check_node_exporter
+      retries: 3
+      delay: 3
+      until:
+        - check_node_exporter.status == 200

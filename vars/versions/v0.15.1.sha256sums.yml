@@ -1,0 +1,11 @@
+---
+node_exporter-0.15.1.darwin-386.tar.gz: sha256:f9509a4dd00bf134bbce027cf208a166313a6568443e4e75fc5d64083ca2598e
+node_exporter-0.15.1.darwin-amd64.tar.gz: sha256:c8fd8d5e7247530281eb2053fe092e2e8cdb8ecdab42891be14ad3dcd2bbe0f4
+node_exporter-0.15.1.linux-386.tar.gz: sha256:3b43d8ecb5d6ac0f29836808ddfb744aa8e2a53e47ac374b686a2a962f7182ef
+node_exporter-0.15.1.linux-amd64.tar.gz: sha256:7ffb3773abb71dd2b2119c5f6a7a0dbca0cff34b24b2ced9e01d9897df61a127
+node_exporter-0.15.1.linux-arm64.tar.gz: sha256:9806380df58ce4d3cfff1091c77286a46ac7ef045fb4b02f662ee7a291eb9815
+node_exporter-0.15.1.linux-armv5.tar.gz: sha256:d30f38a78b37825caf2a04be4d4d9104ed51e901fb44d969c28fb7da9eed0e8a
+node_exporter-0.15.1.linux-armv6.tar.gz: sha256:d1e46a3050dc9f87117c714dc9bad59d21f50d888c5fbe14db218573accc30fd
+node_exporter-0.15.1.linux-armv7.tar.gz: sha256:875412b56ade76ba303734a252e75d00e757ca22b0881b76d67fbb2c2fc1ca21
+node_exporter-0.15.1.netbsd-386.tar.gz: sha256:1883060cef103d5aa44c304fdfd061828c572960bcf7064fa90eea65404b49f7
+node_exporter-0.15.1.netbsd-amd64.tar.gz: sha256:8462925d606ad59d3d5e02eb163a0113ba9f310191e09a2adf817ea0b987ff01

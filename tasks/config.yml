@@ -1,0 +1,57 @@
+---
+- name: ensure etc folder
+  file:
+    path: "{{ item }}"
+    recurse: true
+    state: directory
+  with_items:
+    - "{{ node_exporter_etc_path }}"
+    - /etc/default
+
+- name: check the existence of node_exporter user
+  command: "getent passwd {{ node_exporter_runas_user }}"
+  changed_when: false
+  failed_when: false
+  register: check_user
+
+- name: create node_exporter user
+  vars:
+    managed_comment: "Managed by ansible node_exporter role"
+  user:
+    name: "{{ node_exporter_runas_user }}"
+    shell: /usr/sbin/nologin
+    create_home: false
+    comment: "{{ managed_comment }}"
+  when:
+    - not ansible_check_mode
+    - node_exporter_runas_user != 'root'
+    - check_user.rc != 0 or check_user.stdout.find(managed_comment) != -1
+
+- name: copy /etc/dfault/node_exporter file
+  template:
+    src: "{{ item }}"
+    dest: /etc/default/node_exporter
+  with_first_found:
+    - files:
+        - "default_node_exporter.j2"
+      paths:
+        - "{{ playbook_dir }}/templates/{{ role_name }}"
+        - "{{ role_path }}/templates"
+  notify:
+    - restart node_exporter service
+
+- name: copy node_exporter.service
+  vars:
+    filename: node_exporter.service
+  template:
+    src: "{{ item }}"
+    dest: /etc/systemd/system/node_exporter.service
+  with_first_found:
+    - files:
+        - "{{ filename }}.j2"
+      paths:
+        - "{{ playbook_dir }}/templates/"
+        - "{{ playbook_dir }}/templates/{{ role_name }}"
+        - "{{ role_path }}/templates"
+  notify:
+    - restart node_exporter service

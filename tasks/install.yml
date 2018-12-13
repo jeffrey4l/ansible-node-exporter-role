@@ -1,0 +1,59 @@
+---
+- name: ensure folder
+  file:
+    path: "{{ node_exporter_bin_path }}"
+    state: directory
+
+- name: check node_exporter stat
+  stat:
+    path: "{{ node_exporter_bin_path }}/node_exporter"
+  register: check_node_exporter
+
+- name: check node_exporter version
+  command: "{{ node_exporter_bin_path }}/node_exporter --version"
+  register: check_node_exporter_version
+  changed_when: false
+  when:
+    - check_node_exporter.stat.exists
+
+- name: get current node_exporter version
+  set_fact:
+    cur_node_exporter_version: "{{ check_node_exporter_version.stderr|regex_findall('^node_exporter, version ([^ ]+)') }}"
+  when:
+    - check_node_exporter.stat.exists
+    - check_node_exporter_version is success
+    - not ansible_check_mode
+
+- name: Download node_exporter packages remotely
+  get_url:
+    url: "{{ node_exporter_download_url }}"
+    dest: /tmp/{{ node_exporter_filename }}
+    checksum: "{{ node_exporter_checksum }}"
+  register: download_node_exporter
+  when:
+    - cur_node_exporter_version|default('0') != node_exporter_version
+    - download_mode == 'remote'
+
+- name: Download node_exporter packages locally
+  get_url:
+    url: "{{ node_exporter_download_url }}"
+    dest: /tmp/{{ node_exporter_filename }}
+    checksum: "{{ node_exporter_checksum }}"
+  run_once: true
+  delegate_to: localhost
+  register: download_node_exporter
+  when:
+    - cur_node_exporter_version|default('0') != node_exporter_version
+    - download_mode == 'locally'
+
+- name: unpack the package
+  unarchive:
+    src: /tmp/{{ node_exporter_filename }}
+    dest: /opt/node_exporter
+    owner: root
+    group: root
+    remote_src: "{{ true if download_mode == 'remote' else false  }}"
+    extra_opts:
+      - --strip-components=1
+  when:
+    - cur_node_exporter_version|default('0') != node_exporter_version

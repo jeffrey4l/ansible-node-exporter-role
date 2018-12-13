@@ -1,0 +1,30 @@
+---
+node_exporter_bin_path: /opt/node_exporter
+node_exporter_etc_path: /etc/node_exporter
+node_exporter_data_path: /var/lib/node_exporter
+
+node_exporter_runas_user: root
+
+node_exporter_version_latest: 0.17.0
+
+# Vaild options: [
+#   0.17.0,
+#   0.16.0,
+#   0.15.0, 0.15.1, 0.15.2
+# ]
+node_exporter_version: "{{ node_exporter_version_latest }}"
+# Valid options: [ i386, x86_64, aarch64, armv7l, armv6l ]
+node_exporter_arch: "{{ ansible_architecture }}"
+# Valid options: [darwin, dragonfly, freebsd, linux, netbsd, openbsd, windows]
+node_exporter_os: "{{ ansible_system|lower }}"
+
+node_exporter_filename: >-
+  node_exporter-{{ node_exporter_version }}.{{ node_exporter_os }}-{{ go_arch_map[node_exporter_arch] }}.tar.gz
+node_exporter_checksum: "{{ node_exporter_checksums[node_exporter_version][node_exporter_filename] }}"
+node_exporter_download_url: >-
+  https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/{{ node_exporter_filename }}
+
+# Valid options: [ remote, local ]
+download_mode: remote
+
+node_exporter_args: ""

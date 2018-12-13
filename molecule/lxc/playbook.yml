@@ -1,0 +1,28 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: check sentinel file
+      stat:
+        path: /tmp/node_exporter_latest_installed
+      register: check_latest
+
+    - name: install node_exporter service
+      vars:
+        download_mode: remote
+      include_role:
+        name: ansible-node-exporter-role
+      when:
+        - not check_latest.stat.exists
+
+    - name: upgrade node_exporter service
+      vars:
+        download_mode: locally
+        node_exporter_runas_user: node_exporter
+      include_role:
+        name: ansible-node-exporter-role
+
+    - name: add sentinel file
+      copy:
+        content: ""
+        dest: /tmp/node_exporter_latest_installed

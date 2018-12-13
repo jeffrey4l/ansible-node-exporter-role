@@ -1,0 +1,32 @@
+---
+galaxy_info:
+  author: jeffrey4l
+  description: Ansible role to install node exporter service.
+  company: jeffrey4l
+  role_name: node_exporter
+
+  # If the issue tracker for your role is not on github, uncomment the
+  # next line and provide a value
+  issue_tracker_url: https://github.com/jeffrey4l/ansible-node_exporter-role/issues
+  license: GPLv3
+
+  min_ansible_version: 2.4
+
+  github_branch: master
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+  galaxy_tags:
+    - alerting
+    - metrics
+    - molecule
+    - monitoring
+    - prometheus
+    - exporter
+
+dependencies: []
