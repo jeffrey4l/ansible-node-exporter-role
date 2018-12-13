@@ -11,7 +11,7 @@
       vars:
         download_mode: remote
       include_role:
-        name: ansible-node-exporter-role
+        name: ansible-node_exporter-role
       when:
         - not check_latest.stat.exists
 
@@ -20,7 +20,7 @@
         download_mode: locally
         node_exporter_runas_user: node_exporter
       include_role:
-        name: ansible-node-exporter-role
+        name: ansible-node_exporter-role
 
     - name: add sentinel file
       copy:
