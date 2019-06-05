@@ -1,10 +1,4 @@
 ---
-- name: check configure files
-  command: "{{ node_exporter_bin_path }}/promtool check config {{ node_exporter_etc_path }}/node_exporter.yml"
-
-- name: check configure rules
-  command: "bash -c '{{ node_exporter_bin_path }}/promtool check rules {{ node_exporter_etc_path }}/rules/*'"
-
 - name: restart node_exporter service
   systemd: name=node_exporter state=restarted daemon_reload=yes
 
