@@ -1,0 +1,18 @@
+---
+node_exporter-0.18.1.darwin-386.tar.gz: sha256:61a13b13f5a98bafd6e0dec17c6579acbc13f8a1e24a8e9206a8017edb248460
+node_exporter-0.18.1.darwin-amd64.tar.gz: sha256:20fadb3108de0a9cc70a1333394e5be90416b4f91025f9fc66f5736335e94398
+node_exporter-0.18.1.linux-386.tar.gz: sha256:a6c7eb64bb5f27a5567d545a1b93780f3aa72d0627751fd9f054626bb542a4b5
+node_exporter-0.18.1.linux-amd64.tar.gz: sha256:b2503fd932f85f4e5baf161268854bf5d22001869b84f00fd2d1f57b51b72424
+node_exporter-0.18.1.linux-arm64.tar.gz: sha256:d5a28c46e74f45b9f2158f793a6064fd9fe8fd8da6e0d1e548835ceb7beb1982
+node_exporter-0.18.1.linux-armv5.tar.gz: sha256:1eecbaa2a7e58dc2a5b18e960c48842e5e158c9e2eea4d8a4ba32b98ca2f638a
+node_exporter-0.18.1.linux-armv6.tar.gz: sha256:6f3cb593c15c12cdfaef20d7e1c61d28ef822af6fc8c85d670cb3f0a1212778a
+node_exporter-0.18.1.linux-armv7.tar.gz: sha256:5de85067f44b42b22d62b2789cb1a379ff5559649b99795cd1ba0c144b512ad0
+node_exporter-0.18.1.linux-mips.tar.gz: sha256:9ef7c932970bc823a63347c3cdd8a34a4ef9d327cd5513600435dfd74d046755
+node_exporter-0.18.1.linux-mips64.tar.gz: sha256:c2721c1b85e3024e61f37fb2dc44a57f6d4eed8cc0576185a1dedea20e36fb31
+node_exporter-0.18.1.linux-mips64le.tar.gz: sha256:ae262af96dd7409aeefe28f8ea6cb1b00377444837057ed67694d8fa1b75b848
+node_exporter-0.18.1.linux-mipsle.tar.gz: sha256:40860be242f563e3e10972685f1d1654c9b5ca9686b26bde4a422f57a1ebdd18
+node_exporter-0.18.1.linux-ppc64.tar.gz: sha256:b41f860dbe23b72cf2ae939dd6bb43ea3ddde268f5a964cf6f8d490fed1ed034
+node_exporter-0.18.1.linux-ppc64le.tar.gz: sha256:27996a62327e07041b5dd2f09d6054c7c21244e39358da5d9b44b96daf6a2bc0
+node_exporter-0.18.1.linux-s390x.tar.gz: sha256:0bc212b9db6c2201b2b38d46de2d4cc75b7f4648d7616a87d7616e85f0d6cba4
+node_exporter-0.18.1.netbsd-386.tar.gz: sha256:c831801b5730750177893a9866416ebb68977a8fd5a7b5305e39ef1162e146a9
+node_exporter-0.18.1.netbsd-amd64.tar.gz: sha256:4772c8e2d13935d2bcfa8ad1fd64b8ca5d2cc5d71bbee6dd4ef04306017c6368

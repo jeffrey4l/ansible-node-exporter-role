@@ -5,9 +5,10 @@ node_exporter_data_path: /var/lib/node_exporter
 
 node_exporter_runas_user: root
 
-node_exporter_version_latest: 0.17.0
+node_exporter_version_latest: 0.18.1
 
 # Vaild options: [
+#   0.18.0, 0.18.1,
 #   0.17.0,
 #   0.16.0,
 #   0.15.0, 0.15.1, 0.15.2

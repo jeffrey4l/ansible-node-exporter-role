@@ -10,6 +10,8 @@ PROJECT_ROOT=$(dirname ${CUR_DIR})
 tags=$(curl https://api.github.com/repos/prometheus/node_exporter/git/refs/tags | awk '/"ref"/')
 
 VERSIONS=(
+    v0.18.1
+    v0.18.0
     v0.17.0
     v0.16.0
     v0.15.2
